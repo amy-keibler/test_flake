@@ -1,0 +1,36 @@
+cabal-version:        2.4
+name:                 test-flake
+version:              0.1.0.0
+license-file:         LICENSE
+extra-source-files:   CHANGELOG.md
+                    , LICENSE
+
+library
+  exposed-modules:    Example
+  build-depends:      base ^>=4.14.1.0
+                    , aeson
+                    , random
+  hs-source-dirs:     src
+  default-language:   Haskell2010
+
+executable test-flake
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.1.0
+                    , test-flake
+                    , aeson
+                    , optparse-applicative
+                    , random
+                    , tomland
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite unit-tests
+    type: exitcode-stdio-1.0
+    main-is:          Main.hs
+    build-depends:    base ^>=4.14.1.0
+                    , test-flake
+                    , hspec
+                    , tasty
+                    , tasty-hspec
+    hs-source-dirs:   test
+    default-language: Haskell2010
