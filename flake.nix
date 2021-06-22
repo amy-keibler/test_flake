@@ -22,6 +22,8 @@
       # Built by `nix build .`
       defaultPackage = flake.packages."test-flake:exe:test-flake";
 
+      checks = flake.checks;
+
       # This is used by `nix develop .` to open a shell for use with
       # `cabal`, `hlint` and `haskell-language-server`
       devShell = pkgs.testFlake.shellFor {
